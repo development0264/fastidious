@@ -1,4 +1,4 @@
-import * as React from "react";
+import {useEffect,useState} from "react";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import AppBar from "@mui/material/AppBar";
@@ -12,19 +12,32 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import { useNavigate } from "react-router";
-import { Paper } from "@mui/material";
 
 const Navbar = () => {
   const drawerWidth = 250;
   const navigate = useNavigate();
-  const menus = [
-    { path: "dashboard", name: "Dashboard" },
-    { path: "developer", name: "Developer" },
-    { path: "project", name: "Project" },
-  ];
-
+  const [menus,setMenus]=useState<any>([]);
+  const [pathName,setPathName]=useState("");
+  useEffect(()=>{
+    const isAdmin=window.location.pathname.split('/')[1]
+    setPathName(isAdmin)
+    console.log("isAdmin",isAdmin)
+    if(isAdmin==="projectManager"){
+        setMenus([
+            { path: "dashboard", name: "Dashboard" },
+            { path: "developer", name: "Developer" },
+            { path: "project", name: "Project" },
+          ])
+    }else{
+        setMenus([
+            { path: "dashboard", name: "Dashboard" },
+            { path: "project", name: "Project" },
+            { path: "issues", name: "Issues" },
+          ])
+    }
+  },[])
   const handleRoute = (path: string) => {
-    navigate("/projectManager/" + path);
+    navigate("/"+pathName+"/" + path);
   };
 
   return (
@@ -59,9 +72,9 @@ const Navbar = () => {
         <Toolbar />
         <Box sx={{ overflow: "auto" }}>
           <List>
-            {menus.map((item) => {
+            {menus.length!==0 && menus.map((item:any,index:number) => {
               return (
-                <ListItem>
+                <ListItem key={index}>
                   <ListItemButton>
                     <ListItemIcon>
                       <InboxIcon />

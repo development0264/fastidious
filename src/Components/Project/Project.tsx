@@ -106,13 +106,6 @@ const totalDevelopers = [
     project: "#9992",
     disabled: false,
   },
-  {
-    no: "6",
-    name: "Dnyaneshwar",
-    email: "dt@logixbuilt.com",
-    project: "#9992",
-    disabled: false,
-  },
 ];
 
 const Project = () => {
@@ -120,7 +113,7 @@ const Project = () => {
   const columns = ["No", "Name", "Total Developers", "FrontEnd", "Backend"];
   const [userInput, setUserInput] = useState(initailValues);
   const [developers, setDevelopers] = useState<Array<any>>(totalDevelopers);
-
+  
   const handleModalStatus = () => {
     setModalStatus(!modalStatus);
   };
