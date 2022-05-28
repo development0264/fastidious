@@ -36,7 +36,9 @@ const CustomModal = (props: ModalProps) => {
         <Typography variant="h5" color="text.secondary" fontWeight={700}>
           {title}
         </Typography>
-        <Box p={5} sx={{ maxHeight: "60vh", overflowY: "auto" }}>
+        <Box p={5} sx={{ maxHeight: "60vh", overflowY: "auto",'&::-webkit-scrollbar':{
+          width:0
+        } }}>
           {children}
         </Box>
         <Box mt={3} textAlign="right">

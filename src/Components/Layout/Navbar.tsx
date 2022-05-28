@@ -20,7 +20,7 @@ const Navbar = () => {
   const menus = [
     { path: "dashboard", name: "Dashboard" },
     { path: "developer", name: "Developer" },
-    { path: "dashboard", name: "Dashboard" },
+    { path: "project", name: "Project" },
   ];
 
   const handleRoute = (path: string) => {

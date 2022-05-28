@@ -36,7 +36,7 @@ const theme = createTheme({
                     borderRadius:'50px'
                 }
             }
-        }
+        },
     }
   });
   export default theme

@@ -40,7 +40,7 @@ const Developer = () => {
   }
   return (
     <>
-      <Layout>
+      <Layout title="Developers">
         <Box>
           <Box textAlign="right">
             <Button variant="contained" onClick={handleModalStatus}>
@@ -65,6 +65,8 @@ const Developer = () => {
               <TextField
                 fullWidth
                 type="email"
+                label="Email"
+                placeholder="Enter Email"
                 name="email"
                 onChange={handleChange}
                 // value={values.email}
@@ -75,6 +77,8 @@ const Developer = () => {
                 fullWidth
                 type="password"
                 name="password"
+                label="Password"
+                placeholder="Enter Password"
                 onChange={handleChange}
                 // value={values.password}
               />
