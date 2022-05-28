@@ -31,10 +31,6 @@ const Layout = (props: LayoutProps) => {
     { path: "dashboard", name: "Dashboard" },
   ];
 
-  const handleRoute = (path: string) => {
-    navigate("/projectManager/" + path);
-  };
-
   return (
     <Box sx={{ display: "flex" }}>
       <Navbar/>
